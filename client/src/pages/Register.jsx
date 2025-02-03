@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import "../App.scss";
 import video from "../asset/hero.mp4";
 import Logo from "../asset/logo.png";
@@ -10,7 +10,7 @@ import { MdMarkEmailUnread } from "react-icons/md";
 import { UserData } from "../hooks/context/User";
 import useShowToast from "../hooks/useShowToast.js";
 
-export default function Register() {
+ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -115,3 +115,5 @@ export default function Register() {
     </div>
   );
 }
+
+export default memo(Register);

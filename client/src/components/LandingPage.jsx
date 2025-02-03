@@ -10,9 +10,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Video from "../asset/video.mp4";
-import React from "react";
+import React, { memo } from "react";
 
-export default function LandingPage({ user }) {
+ function LandingPage({ user }) {
   
   return (
     <Box height="100vh" overflowY="auto" width={{ base: "75%", md: "60%" }}>
@@ -209,3 +209,5 @@ export default function LandingPage({ user }) {
     </Box>
   );
 }
+
+export default memo(LandingPage);

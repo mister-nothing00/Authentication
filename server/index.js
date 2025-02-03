@@ -25,6 +25,7 @@ import userRoutes from "./routes/userRoutes.js";
 
 app.use("/user", userRoutes);
 
+
 //PORT
 
 const PORT = process.env.PORT ;
@@ -40,6 +41,6 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, ()=>{
-  console.log(`Server in esecuzione su http://localhost:${PORT}`)
+  console.log(`Server in esecuzione `)
   connectDB();
 })

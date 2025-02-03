@@ -7,11 +7,14 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState([]);
   const [isAuth, setIsAuth] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const showToast = useShowToast();
 
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   async function registerUser(name, email, password, navigate) {
-    setLoading(true);
     try {
       const { data } = await axios.post("/user/register", {
         name,
@@ -26,6 +29,8 @@ export const UserProvider = ({ children }) => {
     } catch (error) {
       showToast("Error", error.message, "error");
       setLoading(false);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -37,10 +42,11 @@ export const UserProvider = ({ children }) => {
       showToast("Success", data.message, "success");
       setUser(data.user);
       setIsAuth(true);
-      setLoading(false);
+
       navigate("/");
     } catch (error) {
       showToast("Error", "Wrong Credentials", "error");
+    } finally {
       setLoading(false);
     }
   }
@@ -48,13 +54,11 @@ export const UserProvider = ({ children }) => {
   async function fetchUser() {
     try {
       const { data } = await axios.get("/user/profile");
-      setUser(data.user);
+      setUser(data);
       setIsAuth(true);
-      setLoading(false);
     } catch (error) {
       console.log(error);
       setIsAuth(false);
-      setLoading(false);
     } finally {
       setLoading(false);
     }
@@ -64,14 +68,10 @@ export const UserProvider = ({ children }) => {
     try {
       await axios.get("/user/logout");
       navigate("/login");
-  } catch (error) {
+    } catch (error) {
       showToast("Error", error.response.data.message, "error");
+    }
   }
-  }
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
 
   return (
     <UserContext.Provider

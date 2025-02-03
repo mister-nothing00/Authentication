@@ -11,7 +11,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Logo from "../asset/logo.png";
-import React from "react";
+import React, { memo } from "react";
 import { BsInfoCircle } from "react-icons/bs";
 import { BsEnvelope, BsCart } from "react-icons/bs";
 import { LuLayoutGrid } from "react-icons/lu";
@@ -22,7 +22,7 @@ import { UserData } from "../hooks/context/User";
 
 
 
-export default function Sidebar() {
+ function Sidebar() {
   const {logoutUser} = UserData()
   const [isSmallScreen] = useMediaQuery("(max-width: 768px)");
   const linkFontSize = useBreakpointValue({ base: "lg", md: "lg" });
@@ -182,3 +182,5 @@ export default function Sidebar() {
     </Flex>
   );
 }
+
+export default memo(Sidebar);

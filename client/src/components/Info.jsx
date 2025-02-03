@@ -8,10 +8,9 @@ import {
   Text,
   Box,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { memo, useEffect, useState } from "react";
 
-export default function Info() {
+ function Info() {
   const [news, setNews] = useState([]);
   const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
@@ -76,3 +75,5 @@ export default function Info() {
     </Box>
   );
 }
+
+export default memo(Info);

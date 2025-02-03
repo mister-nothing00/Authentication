@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import "../App.scss";
 import video from "../asset/hero.mp4";
 import Logo from "../asset/logo.png";
@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
 import { UserData } from "../hooks/context/User";
 
-export default function Login() {
+ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -100,3 +100,5 @@ export default function Login() {
     </div>
   );
 }
+
+export default memo(Login);

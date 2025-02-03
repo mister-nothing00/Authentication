@@ -1,5 +1,5 @@
 import "../App.scss";
-import React from "react";
+import React, { memo } from "react";
 import Sidebar from "../components/Sidebar.jsx";
 import LandingPage from "../components/LandingPage.jsx";
 import Info from "../components/Info.jsx";
@@ -7,7 +7,7 @@ import { Flex } from "@chakra-ui/react";
 import { UserData } from "../hooks/context/User.jsx";
 
 
-export default function HomePage() {
+ function HomePage() {
 
   const {user} = UserData()
  
@@ -23,3 +23,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+export default memo(HomePage);
