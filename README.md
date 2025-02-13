@@ -1,43 +1,31 @@
-## 🌟 Cosa ho costruito?
-🔑 Nome del progetto: Authentication
-Come suggerisce il nome, questo progetto consente agli utenti di registrarsi o accedere al proprio account se già presente nel database. Una volta autenticati, gli utenti possono accedere alla pagina Home.
+# 🔐 Authentication
 
-## 🚀 Tecnologie utilizzate
-Front-End
-🎨 SCSS: Per lo styling.
-⚛️ React: Framework utilizzato insieme al sistema di building Vite per performance elevate.
-✨ Chakra UI: Per un'interfaccia utente moderna e responsiva.
-📡 Axios: Per le richieste HTTP.
-🌐 React Router DOM: Per gestire la navigazione tra le pagine.
+**Authentication** is a project that allows users to register or log in to their account. Once authenticated, users can access the Home page. The application also includes an integration with a news API to display recent updates.
 
-Back-End
-🛠️ Node.js con Express: Per creare il server.
-📂 MongoDB: Utilizzato con un cluster per rendere i dati disponibili globalmente e non solo localmente.
+---
 
-## 📰 Caratteristiche aggiuntive
-Nell'applicazione, è possibile visualizzare notizie recenti grazie all'integrazione con l'API di NewsAPI.org.
+## 🚀 Technologies used
 
-Per configurare le notizie:
-🔧 Crea un file .env nella cartella client.
+### 🖥️ **Frontend**
+- 🎨 **SCSS**: For a modern and personalized style.
+- ⚛️ **React**: Library for creating the user interface, supported by **Vite** for high performance.
+- ✨ **Chakra UI**: For an intuitive and responsive design.
+- 📡 **Axios**: To handle HTTP requests.
+- 🌐 **React Router DOM**: For smooth navigation between pages.
 
-```bash
-Aggiungi la seguente variabile:
-env
-Copia codice
-VITE_NEWS_API_KEY=<la-tua-chiave-API>
-Ottieni la chiave API dal sito NewsAPI.org.
-```
-📜 Nella root principale del progetto (dove ci sono i file package.json e package-lock.json):
+### 🛠️ **Backend**
+- ⚡ **Node.js + Express**: For server and API management.
+- 📂 **MongoDB**: Clustered NoSQL database to make data globally accessible.
+
+---
+
+## 📰 Additional features
+
+🔹 **NewsAPI.org integration** to display the latest news directly in the application.
+
+### 📌 API configuration
+
+To enable news, create a `.env` file in the **client** folder and add:
 
 ```bash
-Crea un file .env e aggiungi queste configurazioni:
-env
-Copia codice
-PORT=5000
-SECRET_KEY=<la-tua-chiave-segreta>
-```
-
-## 🏁 Conclusione
-Ecco fatto! Una volta completati questi passaggi, la tua applicazione Authentication sarà pronta per l'uso. 🎉
-
-🌐 Prova l'applicazione qui: :https://authentication-rz5h.onrender.com/🚀
+VITE_NEWS_API_KEY=<your-API-key>
